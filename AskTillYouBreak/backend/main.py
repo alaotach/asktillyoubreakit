@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 import json
 from fastapi.middleware.cors import CORSMiddleware
 import re
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 
 
 load_dotenv()
@@ -22,6 +24,7 @@ app.add_middleware(
 )
 
 client = Client()
+executor = ThreadPoolExecutor(max_workers=43)
 
 class Answer(BaseModel):
     questionId: str
@@ -72,14 +75,19 @@ async def generate_questions(request: QuestionRequest):
         Make questions progressively harder and more thought-provoking.
         Difficulty should be ('easy' | 'medium' | 'hard').
         """
-        resp = client.chat.completions.create(
-            model="phi-4",
-            messages=[
-                {"role": "system", "content": "You are a question generator that creates engaging, educational questions. Always respond with valid JSON only."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.8,
-            max_tokens=2000
+        loop = asyncio.get_event_loop()
+
+        resp = await loop.run_in_executor(
+            executor,
+            lambda: client.chat.completions.create(
+                model="phi-4",
+                messages=[
+                    {"role": "system", "content": "You are a question generator that creates engaging, educational questions. Always respond with valid JSON only."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.8,
+                max_tokens=2000
+            )
         )
         questions_text = resp.choices[0].message.content.strip()
         print(f"Generated questions: {questions_text}")
