@@ -5,6 +5,7 @@ export interface Question {
     topic: string;
     difficulty: 'easy' | 'medium' | 'hard';
     context?: string;
+    correctAnswer?: string;
 }
 
 export interface Answer {
