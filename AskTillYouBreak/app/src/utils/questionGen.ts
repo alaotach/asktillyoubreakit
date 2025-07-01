@@ -1,6 +1,6 @@
 import { Question, Answer } from '@/types';
 
-const api = "http://192.168.1.6:8000";
+const api = "https://asktillyoubreak.dotverse.tech";
 
 export async function genQuestion(topic: string, previousAnswers: Answer[], count: number = 30): Promise<Question[]> {
     try {

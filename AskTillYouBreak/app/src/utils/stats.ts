@@ -46,9 +46,8 @@ export function get(): UserStats {
         return getDefaultStats();
     }
     const parsed = JSON.parse(stored);
-    parsed.topicStats = parsed.topicStats.map((topic: any) => ({
+    parsed.topicStats = parsed.topicStats.map((topic: TopicStats) => ({
       ...topic,
-      lastPlayed: new Date(topic.lastPlayed)
     }));
     return parsed;
   } catch (error) {

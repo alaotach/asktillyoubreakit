@@ -60,7 +60,7 @@ export default function NarutoRun() {
             }
           }, 100);
         } catch (error) {
-          console.log('Could not simulate jump due to cross-origin restrictions');
+          console.log('Could not simulate jump due to cross-origin restrictions', error);
         }
       }
     };
@@ -127,7 +127,7 @@ export default function NarutoRun() {
         )}
       </div>
       <div className="mt-2 text-xs text-gray-600 text-center px-4">
-        I'll protect you with my life. I will not allow my comrades to die. Trust me.
+        I&apos;ll protect you with my life. I will not allow my comrades to die. Trust me.
       </div>
     </div>
     </>

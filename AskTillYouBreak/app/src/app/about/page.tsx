@@ -44,7 +44,7 @@ export default function AboutPage() {
 
           <footer className="mt-12 text-center text-gray-400 text-sm">
             <p>Made with ❤️ by <Link href="https://github.com/AlAoTach">AlAoTach</Link></p>
-            <p className="mt-2 italic">"I'll keep going forward, no matter what, until I reach my dream. I will never give up" - Great Great AlAoTach (Naruto)</p>
+            <p className="mt-2 italic">&ldquo;I&apos;ll keep going forward, no matter what, until I reach my dream. I will never give up&rdquo; - Great Great AlAoTach (Naruto)</p>
           </footer>
         </div>
       </div>
