@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
+import Back from '@/components/Back';
 
 export default function NarutoRun() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -74,8 +75,10 @@ export default function NarutoRun() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
-      <div className="mb-4 text-xl text-center">Loading questions...</div>
+    <>
+    <div className=" min-h-screen bg-gray-900 text-white p-4">
+    <Back />
+      <div className="flex flex-col items-center justify-center mb-4 text-xl text-center">Loading questions...</div>
       <div className="mb-2 text-sm text-gray-400 text-center">Play while you wait!</div>
       
       <div className="w-full max-w-4xl mx-auto">
@@ -127,5 +130,6 @@ export default function NarutoRun() {
         I'll protect you with my life. I will not allow my comrades to die. Trust me.
       </div>
     </div>
+    </>
   );
 }

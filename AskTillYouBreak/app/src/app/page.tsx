@@ -17,11 +17,18 @@ const topics = [
   { id: "anime", name: "Anime" },
   { id: "comics", name: "Comics" },
   { id: "manga", name: "Manga" },
-  { id: "philosophy", name: "Philosophy" }
-]
+  { id: "philosophy", name: "Philosophy" },
+  { id: "all topics", name: "All Topics" },
+];
 
 export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState<string>("");
+  const [other, setOther] = useState<string>("");
+
+  const handleOtherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setOther(event.target.value);
+  };
+
   return (
     <>
     <NavBar>
@@ -44,8 +51,19 @@ export default function Home() {
             </button>
           ))}
         </div>
-        {selectedTopic && (
-          <Link href={`/questions/${selectedTopic}`}>
+        
+        <div className="w-full max-w-md">
+          <input
+            type="text"
+            placeholder="Or enter your own topic..."
+            value={other}
+            onChange={handleOtherChange}
+            className="w-full p-3 rounded-lg bg-gray-700 border-2 border-gray-600 text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+          />
+        </div>
+        
+        {(selectedTopic || other.trim()) && (
+          <Link href={`/questions/${other.trim() || selectedTopic}`}>
             <button className="px-8 py-4 bg-purple-600 rounded-full font-bold text-xl hover:bg-purple-700 transition-colors">
               Start Questions
             </button>
