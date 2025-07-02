@@ -2,7 +2,7 @@ import { Question, Answer } from '@/types';
 
 const api = "http://192.168.1.6:8000";
 
-export async function genQuestion(topic: string, previousAnswers: Answer[], count: number = 10): Promise<Question[]> {
+export async function genQuestion(topic: string, previousAnswers: Answer[], count: number = 30): Promise<Question[]> {
     try {
         const resp = await fetch(`${api}/questions/generate`, {
             method: "POST",

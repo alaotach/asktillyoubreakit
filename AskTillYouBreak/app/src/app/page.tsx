@@ -24,7 +24,9 @@ export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState<string>("");
   return (
     <>
-    <NavBar />
+    <NavBar>
+      <Link href="/about">About</Link>
+    </NavBar>
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-2xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center space-y-6">
         <h1 className="text-4xl font-bold mb-4 text-purple-400">Ask Till You Break.</h1>
