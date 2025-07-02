@@ -1,6 +1,6 @@
 import { Question, Answer } from '@/types';
 
-const api = "http://127.0.0.1:8000";
+const api = "http://192.168.1.6:8000";
 
 export async function genQuestion(topic: string, previousAnswers: Answer[], count: number = 10): Promise<Question[]> {
     try {

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
 import { Question, Answer } from "@/types";
 import { genQuestion } from "@/utils/questionGen";
-
+import NarutoRun from "@/components/NarutoRun";
 export default function QuestionPage() {
   const params = useParams();
   const topic = params.topic as string;
@@ -79,11 +79,7 @@ export default function QuestionPage() {
   }, [feedback]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-        <div className="text-xl">Loading questions...</div>
-      </div>
-    );
+    return <NarutoRun />;
   }
 
   const currentQuestion = questions[currentQuestionIndex];

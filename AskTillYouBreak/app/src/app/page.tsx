@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import NavBar from "@/components/Navbar";
 
 const topics = [
   { id: "general", name: "General Knowledge" },
@@ -22,6 +23,8 @@ const topics = [
 export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState<string>("");
   return (
+    <>
+    <NavBar />
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-2xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center space-y-6">
         <h1 className="text-4xl font-bold mb-4 text-purple-400">Ask Till You Break.</h1>
@@ -48,6 +51,6 @@ export default function Home() {
         )}
       </div>
     </div>
-    
+    </>
   );
 }
