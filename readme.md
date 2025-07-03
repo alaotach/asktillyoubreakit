@@ -14,7 +14,7 @@ An AI-powered quiz application that generates unlimited questions on any topic. 
 
 ## 🚀 Live Demo
 
-- **Frontend**: [https://your-vercel-app.vercel.app](https://your-vercel-app.vercel.app)
+- **Frontend**: [https://your-vercel-app.vercel.app](https://asktillyoubreak.vercel.app)
 - **Backend API**: [https://asktillyoubreak.dotverse.tech](https://asktillyoubreak.dotverse.tech)
 
 ## 🛠️ Tech Stack
